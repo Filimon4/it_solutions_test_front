@@ -60,7 +60,7 @@ const Items = () => {
 
   return (
     <section className="h-screen flex flex-col overflow-hidden">
-      <div className="h-full overflow-auto relative">
+      <div className="h-full overflow-auto relative overflow-x-hidden">
         {allItems.length === 0 ? (
           <div className="flex justify-center items-center h-full">
             <>Погрузка данных...</>
@@ -71,6 +71,7 @@ const Items = () => {
               onDragEnd={handleDragEnd}
               sensors={sensors}
               collisionDetection={closestCenter}
+              autoScroll={false}
             >
               <SortableContext
                 items={allItems.map((item) => item.id)}

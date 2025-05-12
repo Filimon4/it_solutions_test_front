@@ -31,20 +31,19 @@ export const SortableCard = ({
       ref={setNodeRef}
       style={style}
       {...attributes}
-      className={`w-full ${selected ? "bg-muted" : ""}`}
+      className={`py-0 w-full ${selected ? "bg-muted" : ""}`}
     >
       <div className="flex pl-1.5 items-center gap-0.5">
         <Checkbox
           checked={selected}
           onCheckedChange={() => setSelected((prev) => !prev)}
         />
-        <CardContent
-          className="p-2 flex items-center gap-4 w-full"
-          {...listeners}
-        >
-          <h3 className="text-lg font-semibold">{item.id}</h3>
-          <h3 className="text-lg font-semibold">{item.message}</h3>
-        </CardContent>
+        <div className="flex-grow py-6" {...listeners}>
+          <CardContent className="p-2 flex items-center gap-4 w-full h-full">
+            <h3 className="text-lg font-semibold">{item.id}</h3>
+            <h3 className="text-lg font-semibold">{item.message}</h3>
+          </CardContent>
+        </div>
       </div>
     </Card>
   );
