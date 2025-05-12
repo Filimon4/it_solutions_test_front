@@ -31,19 +31,21 @@ export const SortableCard = ({
       ref={setNodeRef}
       style={style}
       {...attributes}
-      {...listeners}
       className={`w-full ${selected ? "bg-muted" : ""}`}
     >
-      <CardContent className="p-1 flex items-center gap-4">
+      <div className="flex pl-1.5 items-center gap-0.5">
         <Checkbox
           checked={selected}
           onCheckedChange={() => setSelected((prev) => !prev)}
         />
-        <div>
+        <CardContent
+          className="p-2 flex items-center gap-4 w-full"
+          {...listeners}
+        >
           <h3 className="text-lg font-semibold">{item.id}</h3>
           <h3 className="text-lg font-semibold">{item.message}</h3>
-        </div>
-      </CardContent>
+        </CardContent>
+      </div>
     </Card>
   );
 };
